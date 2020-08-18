@@ -14,7 +14,7 @@ public class BaseShape implements Shape{
     public Color color;
     private  boolean selected = false;
 
-    BaseShape(int x, int y, Color color){
+    BaseShape(){
         this.x = x;
         this.y = y;
         this.color = color;

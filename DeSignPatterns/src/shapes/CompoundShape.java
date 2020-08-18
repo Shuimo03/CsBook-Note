@@ -13,7 +13,18 @@ import java.util.List;
 public class CompoundShape extends BaseShape{
     protected List<Shape> children = new ArrayList<>();
     public CompoundShape(int x, int y, Color color){
-        super(0,0,Color.BLACK);
+        super();
+
+    }
+
+    public CompoundShape(Rectangle rectangle, Dot dot, Dot dot1, Dot dot2, Dot dot3) {
+        super();
+    }
+
+    public CompoundShape(int i, int i1, int i2, Color red) {
+    }
+
+    public CompoundShape() {
 
     }
 
@@ -78,5 +89,63 @@ public class CompoundShape extends BaseShape{
     }
 
     @Override
-    public 
+    public int getHeight(){
+
+        int maxHeight = 0;
+        int y = getY();
+
+        for(Shape child : children){
+            int childsRelativeY = child.getY() - y;
+            int childHeight = childsRelativeY + child.getHeight();
+            if (childHeight > maxHeight){
+                maxHeight = childHeight;
+            }
+        }
+        return maxHeight;
+    }
+
+    @Override
+    public void move(int x, int y){
+        for (Shape child : children){
+            child.move(x, y);
+        }
+    }
+
+    @Override
+    public boolean isInsideBounds(int x, int y){
+        for(Shape child : children){
+            if (child.isInsideBounds(x,y)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public void unSelect(){
+        super.unSelect();
+
+        for(Shape child : children){
+            child.unSelect();
+        }
+    }
+
+    public boolean selectChildAt(int x, int y){
+        for(Shape child : children){
+            if(child.isInsideBounds(x, y)){
+                child.select();;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public void paint(Graphics graphics){
+        if(isSelected()){
+            enableSelectionStyle(graphics);
+            graphics.drawRect(getX()-1,getY()-1,getWidth()+1,getHeight()+1);
+            disableSelectionStyle(graphics);
+        }
+    }
 }
