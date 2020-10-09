@@ -10,3 +10,6 @@
 - Java技术核心卷1-2
 - 深入理解Java虚拟机
 - thinkingInJava Java编程思想
+- DatabaseSystemConpts 数据库系统概念
+- DatabaseSystemImplementation 数据库系统实现
+- Computer Organization and Desgin 计算机组成与设计 硬件/软件接口

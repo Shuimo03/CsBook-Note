@@ -1,2 +1,29 @@
-package chapter20;public class Membet {
+package chapter20;
+
+@DBTable(name = "MEMBER")
+public class Member {
+
+    @SQLString(30) String FirstName;
+    @SQLString(50) String lastName;
+    @SQLInteger Integer age;
+    @SQLString(value = 30, constraints =  @Constraints(primaryKey = true))
+    String handle;
+
+    static int memberCount;
+
+    public String getHandle() {
+        return handle;
+    }
+
+    public String getFirstName() {
+        return FirstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
 }
