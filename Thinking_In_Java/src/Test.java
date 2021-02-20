@@ -1,24 +1,11 @@
 
-interface Engine{
-    public void turnOn();
-}
-
-class Car{
-
-    private Engine engine;
-
-    public Car(){}
-
-    public void start(){
-        engine.turnOn();
-    }
-}
-
 public class Test {
 
-
+    @testInterface(test = "测试")
+    public static String test(String text){
+        return text;
+    }
     public static void main(String[]args){
-        Car car = new Car(); //实例化
-
+        System.out.println(test("te"));
     }
 }
