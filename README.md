@@ -10,3 +10,5 @@
 - Java技术核心卷1-2
 - 深入理解Java虚拟机
 - thinkingInJava Java编程思想
+- DDIA 数据密集型应用系统设计
+
