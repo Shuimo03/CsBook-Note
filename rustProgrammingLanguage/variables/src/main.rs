@@ -2,7 +2,7 @@ fn main(){
 
     let mut s1 = String::from("hello");
      let mut len =  first_word(&mut s1);
-     println!({}len);
+     println!(len);
 }
 
 fn first_word(s: &String) -> usize {
